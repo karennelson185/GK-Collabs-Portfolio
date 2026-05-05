@@ -1,0 +1,60 @@
+<mxfile host="app.diagrams.net" pages="2">
+  <diagram name="Page-1" id="FIm4jVq7KjaiKQSqzQ5e">
+    <mxGraphModel grid="1" page="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="545DdVxqTucIo7mizJ6V-1" parent="1" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=50;horizontalStack=0;rounded=1;fontSize=14;fontStyle=1;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;arcSize=4;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontFamily=Montserrat;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DMontserrat;" value="GAMES" vertex="1">
+          <mxGeometry height="190" width="160" x="320" y="170" as="geometry" />
+        </mxCell>
+        <mxCell id="545DdVxqTucIo7mizJ6V-2" parent="545DdVxqTucIo7mizJ6V-1" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;html=1;whiteSpace=wrap;" value="game_id&lt;div&gt;title&lt;/div&gt;&lt;div&gt;release_year&lt;/div&gt;&lt;div&gt;genre&lt;/div&gt;&lt;div&gt;rating&lt;/div&gt;&lt;div&gt;completion_staus&lt;/div&gt;&lt;div&gt;platform_id&lt;/div&gt;&lt;div&gt;developer_id&lt;/div&gt;" vertex="1">
+          <mxGeometry height="140" width="160" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="545DdVxqTucIo7mizJ6V-3" parent="1" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=50;horizontalStack=0;rounded=1;fontSize=14;fontStyle=1;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;arcSize=4;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontFamily=Montserrat;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DMontserrat;" value="PLATFORMS" vertex="1">
+          <mxGeometry height="120" width="160" x="40" y="240" as="geometry" />
+        </mxCell>
+        <mxCell id="545DdVxqTucIo7mizJ6V-4" parent="545DdVxqTucIo7mizJ6V-3" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;html=1;whiteSpace=wrap;" value="platform_id&lt;div&gt;platform_name&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="70" width="160" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="545DdVxqTucIo7mizJ6V-5" parent="1" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=50;horizontalStack=0;rounded=1;fontSize=14;fontStyle=1;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;arcSize=4;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontFamily=Montserrat;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DMontserrat;" value="DEVELOPERS" vertex="1">
+          <mxGeometry height="120" width="160" x="600" y="240" as="geometry" />
+        </mxCell>
+        <mxCell id="545DdVxqTucIo7mizJ6V-6" parent="545DdVxqTucIo7mizJ6V-5" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;html=1;whiteSpace=wrap;" value="developer_id&lt;div&gt;developer_name&lt;/div&gt;&lt;div&gt;country&lt;/div&gt;" vertex="1">
+          <mxGeometry height="70" width="160" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="545DdVxqTucIo7mizJ6V-8" edge="1" parent="1" style="edgeStyle=entityRelationEdgeStyle;fontSize=12;html=1;endArrow=ERoneToMany;rounded=0;" value="">
+          <mxGeometry height="100" relative="1" width="100" as="geometry">
+            <mxPoint x="200" y="300" as="sourcePoint" />
+            <mxPoint x="320" y="320" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="545DdVxqTucIo7mizJ6V-10" edge="1" parent="1" source="545DdVxqTucIo7mizJ6V-5" style="edgeStyle=entityRelationEdgeStyle;fontSize=12;html=1;endArrow=ERoneToMany;rounded=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.991;entryY=0.851;entryDx=0;entryDy=0;entryPerimeter=0;" target="545DdVxqTucIo7mizJ6V-2" value="">
+          <mxGeometry height="100" relative="1" width="100" as="geometry">
+            <mxPoint x="450" y="370" as="sourcePoint" />
+            <mxPoint x="550" y="270" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="acm2PUnZg7bwoZs7_tQm-1" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontSize=14;fontStyle=1;fontFamily=Montserrat;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DMontserrat;" value="&lt;font style=&quot;color: rgb(51, 51, 51);&quot;&gt;&lt;span&gt;&lt;i&gt;Designed by Karen Nelson 2026&lt;/i&gt;&lt;/span&gt;&lt;/font&gt;" vertex="1">
+          <mxGeometry height="30" width="260" x="560" y="520" as="geometry" />
+        </mxCell>
+        <mxCell id="acm2PUnZg7bwoZs7_tQm-4" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontSize=18;" value="&lt;font face=&quot;Montserrat&quot;&gt;&lt;b&gt;Relational Schema: Games Library Management System&lt;/b&gt;&lt;/font&gt;" vertex="1">
+          <mxGeometry height="50" width="760" x="40" y="20" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="B0GVBPwNckerEbJHBKyF" name="Page-2">
+    <mxGraphModel dx="774" dy="512" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="fJUBAbzBNourwX5eX9dd-3" parent="1" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=50;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;arcSize=4;whiteSpace=wrap;html=1;fillColor=#FAD9D5;strokeColor=#D0CEE2;labelBackgroundColor=none;fontColor=#1A1A1A;" value="dvd_collection" vertex="1">
+          <mxGeometry height="280" width="280" x="160" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="fJUBAbzBNourwX5eX9dd-6" parent="fJUBAbzBNourwX5eX9dd-3" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;html=1;whiteSpace=wrap;labelBackgroundColor=none;fontColor=#1A1A1A;" value="film_id&lt;div&gt;title&lt;/div&gt;&lt;div&gt;media_source&lt;/div&gt;&lt;div&gt;is_color&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="230" width="280" y="50" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
