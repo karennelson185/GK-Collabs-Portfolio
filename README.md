@@ -2,7 +2,7 @@ README.md
 
 &#x20;
 
-!\[GK Collabs Master Schema](./gk_collabs_master_schema.png)
+!\[Schematic](./gk_collabs_master_schema.png)
 
 
 
