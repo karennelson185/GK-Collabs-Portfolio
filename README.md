@@ -1,6 +1,5 @@
 README.md
 
-&#x20;
 
 !\[Schematic](./gk_collabs_master_schema.png)
 
