@@ -1,7 +1,7 @@
 README.md
 
 
-!\[Schematic](./master_schema.png)
+![Schematic](./master_schema.png)
 
 
 
