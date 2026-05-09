@@ -13,7 +13,7 @@ Project Overview: This collection features a suite of Python-driven database too
 
 
 
-\# 🏗️ GK Collabs: Unified Media Ecosystem
+\# 🏗️ KG Collabs: Unified Media Ecosystem
 
 
 
@@ -39,8 +39,7 @@ Welcome to the \*\*GK Collabs Architecture\*\*. This repository demonstrates a p
 
 \---
 
-\***GK Collabs is a personal development project. COYG! 🔴⚪️**\*
-
+\***KG Collabs is a personal development project.
 
 
 Folder Contents:
