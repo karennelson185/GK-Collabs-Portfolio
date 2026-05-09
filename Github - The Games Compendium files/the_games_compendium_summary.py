@@ -1,50 +1,49 @@
-# Games Summary Script
+# The Games Compendium Summary Script
 
 import psycopg2
+from tabulate import tabulate
 
-conn = psycopg2.connect(
-     user="your_username",
-        password="your_password", 
-        host="your_host", 
-        port="your_port",
-        database="your_database"
-)
+def run_summary()
+    try:
+        # 1. Connect to the database
+        conn = psycopg2.connect(user="your_username", password="your_password", host="your_host",  port="your_port", database="your_database")
+        cur = conn.cursor()
 
-print("--- Games Library: Executive Summary ---")
+        # 2. Get the total of games 
+        cur.execute("SELECT COUNT(*) FROM games;")
+        total_games = cur.fetchone()[0]
 
-# 1. Total Count
-cursor.execute("SELECT COUNT(*) FROM games;")
-total = cursor.fetchone()[0]
+        # 3. Get genre breakdown
+        cur.execute("SELECT genre, COUNT(*) FROM games GROUP BY genre ORDER BY genre ASC;")
 
-# 2. Breakdown by Platform
-cursor.execute("""
-    SELECT p.platform_name, COUNT(g.game_id) 
-    FROM platforms p
-    LEFT JOIN games g ON p.platform_id = g.platform_id
-    GROUP BY p.platform_name
-    ORDER BY COUNT(g.game_id) DESC;
-""")
-platforms = cursor.fetchall()
+        # 4. Get the developer breakdown
+        cur.execute("SELECT developer_name, COUNT(*) FROM developers GROUP BY developer_name ORDER BY developer_name ASC;")
+        developer_results = cur.fetchall()
 
-# 3. Breakdown by Developer
-cursor.execute("""
-    SELECT d.developer_name, COUNT(g.game_id) 
-    FROM developers d
-    LEFT JOIN games g ON d.developer_id = g.developer_id
-    GROUP BY d.developer_name
-    HAVING COUNT(g.game_id) > 0
-    ORDER BY COUNT(g.game_id) DESC;
-""")
-developers = cursor.fetchall()
+        # The Dashboard Output
+        print("\n" + "="*50)
+        print(f"        GK COLLABS: THE GAMES COMPENDIUM SUMMARY")
+        print("="*50)
+        print(f"  TOTAL GAMES REGISTERED: {total_games}")
 
-print(f"\nTotal Games in Collection: {total}")
-print("\nGames per Platform:")
-for p in platforms:
-    print(f"- {p[0]}: {p[1]}")
+        # 5. Print table 1: Genres
+        print("\n[ GENRE BREAKDOWN ]")
+        PRINT(tabulate(genre_results, headers=["Genre", "Count"], tablefmt="psql"))
 
-print("\nTop Developers in your Library:")
-for d in developers:
-    print(f"- {d[0]}: {d[1]}")
+        # 6. Print table 2: Developers
+        print("\n[  DEVELOPER BREAKDOWN  ]")
+        print(tabulate(developer_results, headers=["Developer", "Count"], tablefmt="psql"))
 
-cursor.close()
-conn.close()
+        print("\n" + "="*50)
+        print("        REPORT COMPLETE!        ")
+        print("="*50 + "\n")
+
+        # 7. Clean up
+        cur.close()
+        conn.close()
+
+    except Exception as e:
+         print(f"Error: {e}")
+
+if __name__ == "__main__":
+     run_summary()
