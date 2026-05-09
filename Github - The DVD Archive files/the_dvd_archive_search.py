@@ -1,24 +1,25 @@
-# DVD Search Script
+# The DVD Archive Search Script
 
 import psycopg2
+from tabulate import tabulate
 
-conn = psycopg2.connect(
-     user="your_username",
-        password="your_password", 
-        host="your_host", 
-        port="your_port",
-        database="your_database"
-)
-cur = conn.cursor()
+def search_dvd():
+    term = input("Search by Name or Director: ")
+    pattern = f"%{term}%"
+    try:
+        conn = psycopg2.connect(user="your_username", password="your_password", host="your_host", port="your_port", database="your_database")
+        cur = conn.cursor()
+        cur.execute("SELECT title, director FROM dvds WHERE title ILIKE %s OR director ILIKE %s;", (pattern, pattern))
+        results = cur.fetchall()
 
-# Keyword set to default.  Insert search term in ''.  Delete when search is complete.
-keyword = 'default'
-cur.execute("SELECT title, director FROM dvds WHERE title ILIKE %s", (f'%{keyword}%',))
-results = cur.fetchall()
+        headers = ["Name, Director"]
+        print(tabulate(results, headers=headers, tablefmt="psql"))
 
-print(f"\nSearch results for '{keyword}':")
-for r in results:
-    print(f"- {r[0]} (Directed by {r[1]})")
+        cur.close()
+        conn.close()
+    except Exception as e:
+        print(f"Error: {e}"0
 
-cur.close()
-conn.close()
+if __name__ == "__main__":
+    search_dvd()
+     
