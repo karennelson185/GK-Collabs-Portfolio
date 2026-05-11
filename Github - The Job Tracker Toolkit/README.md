@@ -4,7 +4,7 @@ README.md
 **Developer:** Karen Nelson | **Series:** GK Collabs
 
 ## 📌 Overview
-This is a professional suite of Python utilities designed to manage and track job applications within a PostgreSQL database. Built in a Linux (Debian) environment, this toolkit automates the CRUD (Create, Read, Update, Delete) cycle for career management.
+This is a professional suite of Python utilities designed to manage and track job applications within a PostgreSQL database. Built in a Linux (Debian) environment, this toolkit automates the CRUD (Create, Read, Update, Delete) cycle for career management.  It has an interactive CLI for tracking job applications with a PostgreSQL backend. Features automatic data normalization (human-friendly 'y/n' inputs), dynamic SQL ID feedback, and bulk-entry processing logic.
 
 ## 🚀 Features
 * **Automated Data Entry:** Quickly log new roles, companies, and application dates.
