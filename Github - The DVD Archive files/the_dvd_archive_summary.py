@@ -1,3 +1,5 @@
+# The DVD Archive Summary Script ~ May 2026
+
 import psycopg2
 from tabulate import tabulate
 
