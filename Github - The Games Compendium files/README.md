@@ -1,3 +1,16 @@
+🚧 Architectural Refactor in Progress 🚧
+Status: May 2026 Refactor
+
+I am currently migrating this database from a Normalized ID-based schema to a Flat-Text Architecture.
+
+Goal: Improved data entry speed and human-readable search results.
+
+New Schema: Incorporating Market Research regarding Nationality, Media Type, and Version Control (Release Year).
+
+Scripts in this folder may be temporarily non-functional while the "Manor" is being rebuilt.
+
+
+
 # 🎮 Games Compendium
 
 ![Schematic](./games_schematic.png)
