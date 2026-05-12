@@ -1,3 +1,5 @@
+# The DVD Archive Update Script ~ May 2026
+
 import psycopg2
 
 def update_dvd_record():
