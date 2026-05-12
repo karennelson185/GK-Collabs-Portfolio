@@ -1,6 +1,6 @@
 # 🎮 Games Compendium
 
-![Schematic](./games_schematic.png)
+![Schematic](./games_schema.png)
 
 ## Folder Contents 
 
