@@ -1,4 +1,4 @@
-# 📚 Library Flagship 8++
+# 📚 The Library 
 
 ![Schematic](./library_schema.png)
 
