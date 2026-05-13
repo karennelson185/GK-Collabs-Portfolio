@@ -27,13 +27,15 @@ Welcome to the \*\*GK Collabs Architecture\*\*. This repository demonstrates a p
 
 | :--- | :--- | :--- |
 
-| \*\*📚 The Library\*\* | Live | Books with genre-based analytics |
+| \*\*📚 The Library\*\* | Live | Digital cataloging of literary works |
 
 | \*\*🎮 The Games Compendium\*\* | Live | Platform-specific tracking and summaries |
 
 | \*\*💿 The DVD Archive\*\* | Live | Director/Genre dashboards \& summary reports |
 
-| \*\*🧩 The Jigsaw Puzzles Collection\*\* | In Development | Recursive history \& piece-count tracking |
+| \*\*🧩 The Jigsaw Puzzles Collection\*\* | Live | Recursive history \& piece-count tracking |
+
+| \*\*💼 The Job Tracker Toolkit\*\* | Live | A streamlined professional toolkit for managing application statuses and interview progress |
 
 
 
