@@ -1,4 +1,4 @@
-🎮 The Games Compendium
+# 🎮 The Games Compendium
 
 ![Schematic](./games_schema.png) 
 
