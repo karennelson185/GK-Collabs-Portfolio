@@ -9,7 +9,7 @@
 # ===================================================
 
 
-Import re
+import re
 import psycopg2
 from tabulate Import tabulate
 
