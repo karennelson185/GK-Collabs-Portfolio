@@ -1,4 +1,4 @@
-💿 Folder 3: DVD Archive (Movies)
+💿 The DVD Archive 
 
 ![Schematic](./dvds_schema.png)
 
