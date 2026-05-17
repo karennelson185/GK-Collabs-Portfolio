@@ -6,7 +6,7 @@
 
 The GK Collabs Core Six™ concept consists of scripts that are simple, clean and fully functional scripts which have six functions that cover the purposes of a good and functioning database.
 
-| **Collection** | Status | Highlights |
+| **Collection**     | Status | Highlights |
 
 | **📚 The Library** | Live | Digital cataloging of literary works |
 
@@ -20,17 +20,13 @@ The GK Collabs Core Six™ concept consists of scripts that are simple, clean an
 
 | **💿🎶 The Music Compilation** | Live | ​A robust backend data engine built in Python and PostgreSQL to archive, manage, and analyze multi-genre music tracks, albums, and songwriters |
 
+**The Technicals**
 
+ - Language: Python 3
 
+ - Database: PostgreSQL
 
+ - Environment: Linux
 
-
-
-&#x20; - Language: Python 3
-
-&#x20; - Database: PostgreSQL
-
-&#x20; - Environment: Linux
-
-&#x20; - Libraries: Psycopg2, Tabulate
+ - Libraries: Psycopg2, Tabulate
 
