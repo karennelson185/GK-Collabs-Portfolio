@@ -1,20 +1,16 @@
-# 💿 The Music Compilation & Pipeline
+## 💿 The Music Compilation & Pipeline
 
 ![Schematic](./music_schema.png)
 
-## Folder Contents 
-
-|Description |
-
-Folder 6:
-
 Overview Statement:
 
-"A specialized command-line application for compiling all my albums, reflecting the different formats, CDs, LPs and Digital Downloads. This project showcases the use of Python scripts to interface with a relational PostgreSQL database, providing the user with the ability to track songwriters and song titles using ReGex.
+"One of a series of databases created, designed, and built with the GK Collabs Core Six™ concept.
 
-GK Collabs is a personal project."
+The GK Collabs Core Six™ concept consists of scripts that are simple, clean and fully functional scripts which have six functions that cover the purposes of a good and functioning database.
 
-| :---: | :---: | 
-| **Scripts** | Python CRUD operations for book management |
-| **ERD**     | Database entity relationship diagram |
-| **Output**  | Screenshots of terminal grid results |
+The Music Compilation is a database management tool that utilizes SQL aggregation to provide deep insights into a music collection. The search facility uses ReGex to refine searches by allowing the user to enter just three characters if that is all they know and will return output of all matches in the database.  "
+
+| **Core Six™** | The GK Collabs Core Six™ concept | 
+| **Scripts** | Python CRUD, search and summary operations for managing an eclectic music collection | 
+| **ERD** | Database entity relationship diagram | 
+| **Output** | Screenshots of terminal grid results |
