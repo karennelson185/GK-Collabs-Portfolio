@@ -2,9 +2,9 @@
 
 ![Schematic](./master.png)
 
-🏗️ GK Collabs: Unified Media Ecosystem 
+🏗️ "A series of databases created, designed, and built with the GK Collabs Core Six™ concept.
 
-Welcome to the GK Collabs Core Six™ system. This repository demonstrates a professional-grade integration of Linux, PostgreSQL, and Python to manage diverse media archives.
+The GK Collabs Core Six™ concept consists of scripts that are simple, clean and fully functional scripts which have six functions that cover the purposes of a good and functioning database.
 
 | **Collection** | Status | Highlights |
 
