@@ -36,11 +36,14 @@ Project Overview: This collection features a suite of Python-driven database too
 
 | \*\*💼 The Job Tracker Toolkit\*\* | Live | A streamlined professional toolkit for managing application statuses and interview progress |
 
+| \*\* 💿🎶 The Music Compilation\*\* | Live 
+| \*\* ​A robust backend data engine built in Python and PostgreSQL to archive, manage, and analyze multi-genre music tracks, albums, and songwriters |
+
 
 
 \---
 
-\***GK Collabs is a personal development project.
+\*** GK Collabs Core Six™ system is a personal development project.
 
 
 Folder Contents:
