@@ -1,4 +1,4 @@
-## 💿 The Music Compilation & Pipeline
+## 💿 The Music Compilation 
 
 ![Schematic](./music_schema.png)
 
