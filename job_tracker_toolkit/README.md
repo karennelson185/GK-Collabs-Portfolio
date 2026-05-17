@@ -1,7 +1,6 @@
-README.md
+# 💼 Job Tracker Toolkit
 
 ![Schematic](./job_schema.png)
-# 💼 Job Tracker Toolkit
 
 Overview Statement:
 
