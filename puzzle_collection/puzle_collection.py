@@ -1,4 +1,4 @@
-# puzle_collection.py
+# puzzle_collection.py
 
 import sqlite3
 from tabulate import tabulate
