@@ -1,6 +1,6 @@
 # 💼 Job Tracker Toolkit
 
-![Schematic](./job_schema.png)
+![Schematic](./job_tracker_schema.png)
 
 Overview Statement:
 
