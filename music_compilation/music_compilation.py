@@ -8,15 +8,19 @@
 # May 2026
 # ===================================================
 
+# **    THIS PYTHON SCRIPT CAN BE USED IN EITHER SQLITE3 AND PGADMIN 4.  JUST SWAP THE ? FOR %s PLACE HOLDERS ##
 
-import re
-import psycopg2
-from tabulate Import tabulate
+# import re
+# import psycopg2
 
+import sqlite3
+from tabulate import tabulate
 
-def connect_db()
-    return psycopg2.connect(database=”your_db”, user=”your_username”, password=”your_password”, host=”your_host”, port=”your_port”)
+def connect_db():
+    return sqlite3.connect('music_compilation.db')
 
+ # def connect_db()
+   # return psycopg2.connect(database=”your_db”, user=”your_username”, password=”your_password”, host=”your_host”, port=”your_port”)
 
 def create_tables():
     try:
@@ -83,7 +87,7 @@ def add_album_and_tracks():
     try:
         insert_album_sql = """
             INSERT INTO albums (album_title, artist, year, label, genre, producer, format)
-            VALUES (%s, %s, %s, %s, %s, %s, %s) RETURNING album_id;
+            VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING album_id;
         """
         cursor.execute(insert_album_sql, (title, artist, year, label, genre, producer, format))
         
@@ -110,7 +114,7 @@ def add_album_and_tracks():
             # Insert the song, bridging it to the parent using current_album_id
             insert_track_sql = """
                 INSERT INTO tracks (album_id, track_number, title, songwriter, duration)
-                VALUES (%s, %s, %s, %s, %s);
+                VALUES (?, ?, ?, ?, ?);
             """
             cursor.execute(insert_track_sql, (current_album_id, track_counter, track_title, songwriter, duration))
             print(f"[✓] Added: Track {track_counter} - '{track_title}'")
@@ -176,7 +180,7 @@ def view_album_tracks():
     
     try:
         # Fetch the album name first to show as a header
-        cursor.execute("SELECT album_title, artist FROM albums WHERE album_id = %s;", (target_id,))
+        cursor.execute("SELECT album_title, artist FROM albums WHERE album_id = ?;", (target_id,))
         album_info = cursor.fetchone()
         
         if not album_info:
@@ -189,7 +193,7 @@ def view_album_tracks():
         query = """
             SELECT track_number, title, songwriter, duration 
             FROM tracks 
-            WHERE album_id = %s 
+            WHERE album_id = ? 
             ORDER BY track_number;
         """
         cursor.execute(query, (target_id,))
@@ -226,7 +230,7 @@ def regex_search_system():
             SELECT t.title, t.songwriter, t.duration, a.album_title, a.artist 
             FROM tracks t
             JOIN albums a ON t.album_id = a.album_id
-            WHERE t.title ~* %s OR t.songwriter ~* %s;
+            WHERE t.title ~* ? OR t.songwriter ~* ?;
         """
         cursor.execute(query, (search_term, search_term))
         results = cursor.fetchall()
@@ -263,7 +267,7 @@ def delete_album():
         
     try:
         # ON DELETE CASCADE handles the track deletion completely in the background!
-        cursor.execute("DELETE FROM albums WHERE album_id = %s;", (target_id,))
+        cursor.execute("DELETE FROM albums WHERE album_id = ?;", (target_id,))
         conn.commit()
         print(f"[✓] Album ID {target_id} and all its associated track links successfully purged.\n")
         
