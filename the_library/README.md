@@ -1,6 +1,6 @@
 # 📚 The Library 
 
-![Schematic](./library_schema.png)
+![Schematic](./the_library_schema.png)
 
 Overview Statement:
 
