@@ -156,10 +156,12 @@ create_table()
 if __name__ == "__main__":
     while True:
         print("\n=== PUZZLE COLLECTION TOOLKIT (CORE 6) ===")
-        print("1. Create  2. Read  3. Search  4. Summary  5. Exit")
+        print("1. Create  2. Read  3. Update  4. Delete  5. Search  6. Summary  7. Exit")
         choice = input("Select Action: ")
         if choice == '1': create_puzzle()
         elif choice == '2': read_puzzles()
-        elif choice == '3': search_puzzles()
-        elif choice == '4': summary_report()
-        elif choice == '5': break
+        elif choice == '3': update_puzzle()
+        elif choice == '4': delete_puzzle()
+        elif choice == '5': search_puzzles()
+        elif choice == '6': summary_report()
+        elif choice == '7': break
