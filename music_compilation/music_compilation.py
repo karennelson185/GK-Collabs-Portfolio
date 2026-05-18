@@ -68,7 +68,7 @@ if __name__ == "__main__":
     create_tables()
 
 
-def add_album_and_tracks():
+def create_album_and_tracks():
     conn = connect_db()
     if not conn:
         return
@@ -133,8 +133,7 @@ def add_album_and_tracks():
         cursor.close()
         conn.close()
 
-
-def read_and_summarize_catalog():
+def read_and_summarize_catalogue():
     conn = connect_db()
     if not conn:
         return
@@ -145,7 +144,7 @@ def read_and_summarize_catalog():
         cursor.execute("SELECT album_id, album_title, artist, year, genre, format FROM albums ORDER BY artist;")
         albums = cursor.fetchall()
         
-        print("\n=============================== THE MUSIC MANOR CATALOG ===============================")
+        print("\n=============================== THE MUSIC MANOR CATALOGUE ===============================")
         headers = ["ID", "Album Title", "Artist/Band", "Year", "Genre", "Format"]
         print(tabulate(albums, headers=headers, tablefmt="grid"))
         
@@ -167,6 +166,46 @@ def read_and_summarize_catalog():
     finally:
         cursor.close()
         conn.close()
+
+def update_music():
+    read_and_summarize_catalogue()  # Present the grid so they can see the Track IDs!
+    track_id = input("\nEnter the Track ID you wish to update: ")
+    
+    print("\nWhat would you like to update?")
+    print("[1] Song Title")
+    print("[2] Artist")
+    print("[3] Genre")
+    print("[4] Album")
+    print("[5] Year of Release")
+    
+    sub_choice = input("Enter choice (1-5): ")
+    new_value = input("Enter the new correct detail: ")
+    
+    column_to_update = ""
+    if sub_choice == "1":
+        column_to_update = "title"
+    elif sub_choice == "2":
+        column_to_update = "artist"
+    elif sub_choice == "3":
+        column_to_update = "genre"
+    elif sub_choice == "4":
+        column_to_update = "album"
+    elif sub_choice == "5":
+        column_to_update = "year"
+    else:
+        print("Invalid choice. Returning to main menu.")
+        return
+
+    # Clean SQLite execution for GitHub
+    conn = sqlite3.connect('music.db')
+    cursor = conn.cursor()
+    query = f"UPDATE music SET {column_to_update} = ? WHERE track_id = ?"
+    
+    cursor.execute(query, (new_value, track_id))
+    conn.commit()
+    conn.close()
+    
+    print(f"\nSUCCESS: Track ID {track_id}'s {column_to_update} has been updated to '{new_value}'!")
 
 
 def view_album_tracks():
@@ -209,6 +248,33 @@ def view_album_tracks():
         cursor.close()
         conn.close()
 
+def delete_album():
+    conn = connect_db()
+    if not conn:
+        return
+    cursor = conn.cursor()
+    
+    print("\n=== DELETE ALBUM ===")
+    target_id = input("Enter the Album ID you wish to permanently remove: ").strip()
+    
+    # Verification check to make sure you don't delete by accident
+    confirm = input(f"Are you absolutely sure you want to delete Album ID {target_id}? (type 'YES' to confirm): ")
+    if confirm != "YES":
+        print("[!] Deletion canceled. Data intact.")
+        return
+        
+    try:
+        # ON DELETE CASCADE handles the track deletion completely in the background!
+        cursor.execute("DELETE FROM albums WHERE album_id = ?;", (target_id,))
+        conn.commit()
+        print(f"[✓] Album ID {target_id} and all its associated track links successfully purged.\n")
+        
+    except Exception as e:
+        conn.rollback()
+        print(f"[X] Delete execution failed: {e}")
+    finally:
+        cursor.close()
+        conn.close()
 
 def regex_search_system():
     conn = connect_db()
@@ -248,37 +314,7 @@ def regex_search_system():
     finally:
         cursor.close()
         conn.close()
-
-
-def delete_album():
-    conn = connect_db()
-    if not conn:
-        return
-    cursor = conn.cursor()
-    
-    print("\n=== DELETE ALBUM ===")
-    target_id = input("Enter the Album ID you wish to permanently remove: ").strip()
-    
-    # Verification check to make sure you don't delete by accident
-    confirm = input(f"Are you absolutely sure you want to delete Album ID {target_id}? (type 'YES' to confirm): ")
-    if confirm != "YES":
-        print("[!] Deletion canceled. Data intact.")
-        return
         
-    try:
-        # ON DELETE CASCADE handles the track deletion completely in the background!
-        cursor.execute("DELETE FROM albums WHERE album_id = ?;", (target_id,))
-        conn.commit()
-        print(f"[✓] Album ID {target_id} and all its associated track links successfully purged.\n")
-        
-    except Exception as e:
-        conn.rollback()
-        print(f"[X] Delete execution failed: {e}")
-    finally:
-        cursor.close()
-        conn.close()
-
-
 def main_menu():
     # 1. Clear the screen (optional but looks amazing)
     print("\033[H\033[J") 
@@ -306,8 +342,9 @@ def main_menu():
         print(" [2] View Catalogue & Compilation Summary")
         print(" [3] View Album Tracklist")
         print(" [4] Advanced RegEx Search (Songs/Songwriters)")
-        print(" [5] Delete Album Entry")
-        print(" [6] Exit Database Menu")
+        print(" [5] Update Album")
+        print(" [6] Delete Album")
+        print(" [7] Exit Database Menu")
         print(“\n”)
         print("=" * 46)
         
@@ -322,8 +359,10 @@ def main_menu():
         elif choice == '4':
             regex_search_system()
         elif choice == '5':
-            delete_or_update_entry()
-        elif choice == '6':
+             update_entry()
+        elif choice == '6'
+             delete_album()
+        elif choice == '7':
             print("\nShutting down The Database. Goodbye!")
             break
         else:
