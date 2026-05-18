@@ -61,6 +61,74 @@ def read_puzzles():
     print("\n--- [2] READ: THE PUZZLE COLLECTION ---")
     print(tabulate(rows, headers=headers, tablefmt="grid"))
 
+def update_puzzle():
+    read_puzzles()  # Shows the grid so they see the Puzzle IDs
+    puzzle_id = input("\nEnter the Puzzle ID you wish to update: ")
+    
+    print("\nWhat would you like to update?")
+    print("[1] Puzzle Name")
+    print("[2] Illustrator")
+    print("[3] Publisher")
+    print("[4] Genre")
+    print("[5] Dimensions")
+    print("[6] Piece Count")
+    print("[7] ISBN")
+    print("[8] Completed Status (Yes/No)")
+    
+    sub_choice = input("Enter choice (1-8): ")
+    new_value = input("Enter the new correct detail: ")
+    
+    column_to_update = ""
+    if sub_choice == "1":
+        column_to_update = "puzzle_name"
+    elif sub_choice == "2":
+        column_to_update = "illustrator"
+    elif sub_choice == "3":
+        column_to_update = "publisher"
+    elif sub_choice == "4":
+        column_to_update = "genre"
+    elif sub_choice == "5":
+        column_to_update = "dimensions"
+    elif sub_choice == "6":
+        column_to_update = "piece_count"
+    elif sub_choice == "7":
+        column_to_update = "isbn"
+    elif sub_choice == "8":
+        column_to_update = "completed"
+    else:
+        print("Invalid choice. Returning to main menu.")
+        return
+
+    # Clean SQLite execution for GitHub
+    conn = sqlite3.connect('puzzles.db')
+    cursor = conn.cursor()
+    query = f"UPDATE puzzles SET {column_to_update} = ? WHERE puzzle_id = ?"
+    
+    cursor.execute(query, (new_value, puzzle_id))
+    conn.commit()
+    conn.close()
+    
+    print(f"\nSUCCESS: Puzzle ID {puzzle_id}'s {column_to_update} has been updated to '{new_value}'!")
+
+def delete_puzzle():
+    read_puzzles()  # Displays the grid first so they can check the correct IDs
+    puzzle_id = input("\nEnter the Puzzle ID you wish to DELETE permanently: ")
+    
+    # Standard Core Six safety confirmation
+    confirm = input(f"Are you absolutely sure you want to delete Puzzle ID {puzzle_id}? (yes/no): ").lower()
+    
+    if confirm == 'yes':
+        conn = sqlite3.connect('puzzles.db')
+        cursor = conn.cursor()
+        
+        cursor.execute("DELETE FROM puzzles WHERE puzzle_id = ?", (puzzle_id,))
+        
+        conn.commit()
+        conn.close()
+        print(f"\nSUCCESS: Puzzle ID {puzzle_id} has been permanently deleted from the collection.")
+    else:
+        print("\nDeletion cancelled. Returning to main menu.")
+
 def search_puzzles():
     query = input("\nSearch by Name, Illustrator, or Genre: ")
     conn = connect_db()
