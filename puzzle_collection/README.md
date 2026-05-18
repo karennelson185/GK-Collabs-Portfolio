@@ -1,6 +1,6 @@
 # 🧩 Jigsaw Puzzle Collection
 
-![Schematic](./jigsaw_schema.png)
+![Schematic](./jigsaw_puzzle_schema.png)
 
 Overview Statement:
 
