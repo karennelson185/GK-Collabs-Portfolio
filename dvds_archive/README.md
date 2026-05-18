@@ -1,6 +1,6 @@
 # 💿 The DVD Archive 
 
-![Schematic](./dvds_schema.png)
+![Schematic](./dvds_archive.png)
 
 Overview Statement:
 
