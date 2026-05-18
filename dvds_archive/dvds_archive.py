@@ -163,7 +163,7 @@ create_table()
 if __name__ == "__main__":
     while True:
         print("\n=== DVD ARCHIVE TOOLKIT (CORE 6) ===")
-        print("1. Create  2. Read  3. Search  4. Summary  5. Exit")
+        print("1. Create  2. Read  3. Update  4. Delete  5. Search  6. Summary  7. Exit")
         choice = input("Select Action: ")
         if choice == '1': create_dvd()
         elif choice == '2': read_dvds()
