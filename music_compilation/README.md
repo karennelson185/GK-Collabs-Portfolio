@@ -1,6 +1,6 @@
 ## 💿 The Music Compilation 
 
-![Schematic](./music_schema.png)
+![Schematic](./music_compilation_schema.png)
 
 Overview Statement:
 
