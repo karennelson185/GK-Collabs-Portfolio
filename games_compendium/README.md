@@ -1,6 +1,6 @@
 # 🎮 The Games Compendium
 
-![Schematic](./games_schema.png) 
+![Schematic](./video_games_schema.png) 
 
 Overview Statement:
 
